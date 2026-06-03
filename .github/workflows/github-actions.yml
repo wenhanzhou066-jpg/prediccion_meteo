@@ -1,0 +1,57 @@
+name: Predicción Meteorológica ML
+
+on:
+  schedule:
+    - cron: '0 */6 * * *' 
+  workflow_dispatch:         # permite lanzarlo manualmente desde GitHub
+
+jobs:
+  predecir:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repositorio
+        uses: actions/checkout@v4
+
+      - name: Configurar Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+          cache-dependency-path: entrenamiento/requirements.txt
+
+      - name: Instalar dependencias
+        run: pip install -r entrenamiento/requirements.txt
+
+      - name: Crear placeholders parts_parquet
+        run: |
+          python - <<'EOF'
+          import json, re, unicodedata
+          from pathlib import Path
+
+          def nombre_seguro(s):
+              s = s.strip()
+              s = unicodedata.normalize("NFD", s)
+              s = "".join(c for c in s if unicodedata.category(c) != "Mn")
+              s = s.replace(" ", "_")
+              return re.sub(r"[^0-9A-Za-z_\-]", "", s)
+
+          coords = Path("entrenamiento/models/estaciones_coords.json")
+          parts  = Path("entrenamiento/parts_parquet")
+          parts.mkdir(exist_ok=True)
+
+          with open(coords, encoding="utf-8") as f:
+              estaciones = json.load(f)
+
+          for nombre in estaciones:
+              (parts / f"part_{nombre_seguro(nombre)}.parquet").touch()
+
+          print(f"Creados {len(list(parts.glob('*.parquet')))} placeholders")
+          EOF
+
+      - name: Ejecutar predicción
+        working-directory: entrenamiento
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_KEY: ${{ secrets.SUPABASE_KEY }}
+        run: python prediccion_ml.py

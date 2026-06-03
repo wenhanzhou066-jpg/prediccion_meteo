@@ -1,0 +1,1442 @@
+{
+  "Vitoria-Gasteiz": {
+    "id": 6,
+    "latitud": 42.846,
+    "longitud": -2.672,
+    "altitud_m": 524.0
+  },
+  "Llodio": {
+    "id": 7,
+    "latitud": 43.143,
+    "longitud": -2.961,
+    "altitud_m": 140.0
+  },
+  "Amurrio": {
+    "id": 8,
+    "latitud": 43.052,
+    "longitud": -3.001,
+    "altitud_m": 219.0
+  },
+  "Salvatierra": {
+    "id": 9,
+    "latitud": 42.85,
+    "longitud": -2.389,
+    "altitud_m": 601.0
+  },
+  "Laguardia": {
+    "id": 10,
+    "latitud": 42.559,
+    "longitud": -2.58,
+    "altitud_m": 635.0
+  },
+  "Albacete": {
+    "id": 11,
+    "latitud": 38.994,
+    "longitud": -1.856,
+    "altitud_m": 686.0
+  },
+  "Hellín": {
+    "id": 12,
+    "latitud": 38.507,
+    "longitud": -1.7,
+    "altitud_m": 566.0
+  },
+  "Almansa": {
+    "id": 13,
+    "latitud": 38.869,
+    "longitud": -1.097,
+    "altitud_m": 712.0
+  },
+  "Villarrobledo": {
+    "id": 14,
+    "latitud": 39.267,
+    "longitud": -2.6,
+    "altitud_m": 724.0
+  },
+  "La Roda": {
+    "id": 15,
+    "latitud": 39.207,
+    "longitud": -2.156,
+    "altitud_m": 716.0
+  },
+  "Alicante": {
+    "id": 16,
+    "latitud": 38.345,
+    "longitud": -0.49,
+    "altitud_m": 9.0
+  },
+  "Elche": {
+    "id": 17,
+    "latitud": 38.267,
+    "longitud": -0.698,
+    "altitud_m": 86.0
+  },
+  "Benidorm": {
+    "id": 18,
+    "latitud": 38.534,
+    "longitud": -0.131,
+    "altitud_m": 5.0
+  },
+  "Torrevieja": {
+    "id": 19,
+    "latitud": 37.979,
+    "longitud": -0.682,
+    "altitud_m": 6.0
+  },
+  "Alcoy": {
+    "id": 20,
+    "latitud": 38.698,
+    "longitud": -0.474,
+    "altitud_m": 562.0
+  },
+  "Almería": {
+    "id": 21,
+    "latitud": 36.84,
+    "longitud": -2.468,
+    "altitud_m": 22.0
+  },
+  "Roquetas de Mar": {
+    "id": 22,
+    "latitud": 36.764,
+    "longitud": -2.615,
+    "altitud_m": 18.0
+  },
+  "El Ejido": {
+    "id": 23,
+    "latitud": 36.776,
+    "longitud": -2.815,
+    "altitud_m": 141.0
+  },
+  "Níjar": {
+    "id": 24,
+    "latitud": 36.967,
+    "longitud": -2.206,
+    "altitud_m": 322.0
+  },
+  "Vera": {
+    "id": 25,
+    "latitud": 37.245,
+    "longitud": -1.862,
+    "altitud_m": 102.0
+  },
+  "Oviedo": {
+    "id": 26,
+    "latitud": 43.362,
+    "longitud": -5.849,
+    "altitud_m": 336.0
+  },
+  "Gijón": {
+    "id": 27,
+    "latitud": 43.535,
+    "longitud": -5.663,
+    "altitud_m": 15.0
+  },
+  "Avilés": {
+    "id": 28,
+    "latitud": 43.556,
+    "longitud": -5.924,
+    "altitud_m": 12.0
+  },
+  "Mieres": {
+    "id": 29,
+    "latitud": 43.25,
+    "longitud": -5.775,
+    "altitud_m": 236.0
+  },
+  "Langreo": {
+    "id": 30,
+    "latitud": 43.3,
+    "longitud": -5.692,
+    "altitud_m": 180.0
+  },
+  "Ávila": {
+    "id": 31,
+    "latitud": 40.656,
+    "longitud": -4.7,
+    "altitud_m": 1131.0
+  },
+  "Arenas de San Pedro": {
+    "id": 32,
+    "latitud": 40.211,
+    "longitud": -5.085,
+    "altitud_m": 511.0
+  },
+  "Piedrahíta": {
+    "id": 33,
+    "latitud": 40.463,
+    "longitud": -5.328,
+    "altitud_m": 1061.0
+  },
+  "Cebreros": {
+    "id": 34,
+    "latitud": 40.458,
+    "longitud": -4.464,
+    "altitud_m": 756.0
+  },
+  "Sotillo de la Adrada": {
+    "id": 35,
+    "latitud": 40.287,
+    "longitud": -4.6,
+    "altitud_m": 657.0
+  },
+  "Badajoz": {
+    "id": 36,
+    "latitud": 38.879,
+    "longitud": -6.97,
+    "altitud_m": 184.0
+  },
+  "Mérida": {
+    "id": 37,
+    "latitud": 38.917,
+    "longitud": -6.342,
+    "altitud_m": 221.0
+  },
+  "Almendralejo": {
+    "id": 38,
+    "latitud": 38.683,
+    "longitud": -6.408,
+    "altitud_m": 336.0
+  },
+  "Don Benito": {
+    "id": 39,
+    "latitud": 38.956,
+    "longitud": -5.862,
+    "altitud_m": 279.0
+  },
+  "Zafra": {
+    "id": 40,
+    "latitud": 38.417,
+    "longitud": -6.417,
+    "altitud_m": 508.0
+  },
+  "Barcelona": {
+    "id": 41,
+    "latitud": 41.383,
+    "longitud": 2.183,
+    "altitud_m": 12.0
+  },
+  "LH ospitalet": {
+    "id": 42,
+    "latitud": 41.36,
+    "longitud": 2.1,
+    "altitud_m": 26.0
+  },
+  "Badalona": {
+    "id": 43,
+    "latitud": 41.45,
+    "longitud": 2.247,
+    "altitud_m": 17.0
+  },
+  "Terrassa": {
+    "id": 44,
+    "latitud": 41.563,
+    "longitud": 2.008,
+    "altitud_m": 277.0
+  },
+  "Sabadell": {
+    "id": 45,
+    "latitud": 41.543,
+    "longitud": 2.109,
+    "altitud_m": 190.0
+  },
+  "Bilbao": {
+    "id": 46,
+    "latitud": 43.263,
+    "longitud": -2.935,
+    "altitud_m": 19.0
+  },
+  "Barakaldo": {
+    "id": 47,
+    "latitud": 43.296,
+    "longitud": -2.992,
+    "altitud_m": 30.0
+  },
+  "Getxo": {
+    "id": 48,
+    "latitud": 43.356,
+    "longitud": -3.012,
+    "altitud_m": 50.0
+  },
+  "Basauri": {
+    "id": 49,
+    "latitud": 43.237,
+    "longitud": -2.885,
+    "altitud_m": 80.0
+  },
+  "Leioa": {
+    "id": 50,
+    "latitud": 43.328,
+    "longitud": -2.985,
+    "altitud_m": 40.0
+  },
+  "Burgos": {
+    "id": 51,
+    "latitud": 42.343,
+    "longitud": -3.697,
+    "altitud_m": 856.0
+  },
+  "Aranda de Duero": {
+    "id": 52,
+    "latitud": 41.668,
+    "longitud": -3.689,
+    "altitud_m": 798.0
+  },
+  "Miranda de Ebro": {
+    "id": 53,
+    "latitud": 42.687,
+    "longitud": -2.947,
+    "altitud_m": 463.0
+  },
+  "Medina de Pomar": {
+    "id": 54,
+    "latitud": 42.932,
+    "longitud": -3.487,
+    "altitud_m": 636.0
+  },
+  "Lerma": {
+    "id": 55,
+    "latitud": 42.027,
+    "longitud": -3.753,
+    "altitud_m": 940.0
+  },
+  "Cáceres": {
+    "id": 56,
+    "latitud": 39.473,
+    "longitud": -6.372,
+    "altitud_m": 459.0
+  },
+  "Plasencia": {
+    "id": 57,
+    "latitud": 40.03,
+    "longitud": -6.088,
+    "altitud_m": 355.0
+  },
+  "Navalmoral de la Mata": {
+    "id": 58,
+    "latitud": 39.893,
+    "longitud": -5.54,
+    "altitud_m": 297.0
+  },
+  "Coria": {
+    "id": 59,
+    "latitud": 39.985,
+    "longitud": -6.533,
+    "altitud_m": 294.0
+  },
+  "Trujillo": {
+    "id": 60,
+    "latitud": 39.458,
+    "longitud": -5.881,
+    "altitud_m": 564.0
+  },
+  "Cádiz": {
+    "id": 61,
+    "latitud": 36.527,
+    "longitud": -6.292,
+    "altitud_m": 12.0
+  },
+  "Jerez de la Frontera": {
+    "id": 62,
+    "latitud": 36.686,
+    "longitud": -6.136,
+    "altitud_m": 56.0
+  },
+  "Algeciras": {
+    "id": 63,
+    "latitud": 36.128,
+    "longitud": -5.451,
+    "altitud_m": 17.0
+  },
+  "Sanlúcar de Barrameda": {
+    "id": 64,
+    "latitud": 36.778,
+    "longitud": -6.351,
+    "altitud_m": 30.0
+  },
+  "La Línea de la Concepción": {
+    "id": 65,
+    "latitud": 36.168,
+    "longitud": -5.349,
+    "altitud_m": 22.0
+  },
+  "Santander": {
+    "id": 66,
+    "latitud": 43.462,
+    "longitud": -3.81,
+    "altitud_m": 52.0
+  },
+  "Torrelavega": {
+    "id": 67,
+    "latitud": 43.349,
+    "longitud": -4.048,
+    "altitud_m": 23.0
+  },
+  "Castro-Urdiales": {
+    "id": 68,
+    "latitud": 43.384,
+    "longitud": -3.222,
+    "altitud_m": 13.0
+  },
+  "Reinosa": {
+    "id": 69,
+    "latitud": 42.998,
+    "longitud": -4.138,
+    "altitud_m": 851.0
+  },
+  "Laredo": {
+    "id": 70,
+    "latitud": 43.412,
+    "longitud": -3.413,
+    "altitud_m": 10.0
+  },
+  "Castellón": {
+    "id": 71,
+    "latitud": 39.987,
+    "longitud": -0.051,
+    "altitud_m": 28.0
+  },
+  "Vila-real": {
+    "id": 72,
+    "latitud": 39.938,
+    "longitud": -0.1,
+    "altitud_m": 43.0
+  },
+  "Benicàssim": {
+    "id": 73,
+    "latitud": 40.054,
+    "longitud": 0.064,
+    "altitud_m": 15.0
+  },
+  "Vinaròs": {
+    "id": 74,
+    "latitud": 40.47,
+    "longitud": 0.475,
+    "altitud_m": 24.0
+  },
+  "Onda": {
+    "id": 75,
+    "latitud": 39.962,
+    "longitud": -0.261,
+    "altitud_m": 225.0
+  },
+  "Ciudad Real": {
+    "id": 76,
+    "latitud": 38.986,
+    "longitud": -3.919,
+    "altitud_m": 628.0
+  },
+  "Puertollano": {
+    "id": 77,
+    "latitud": 38.687,
+    "longitud": -4.107,
+    "altitud_m": 700.0
+  },
+  "Tomelloso": {
+    "id": 78,
+    "latitud": 39.15,
+    "longitud": -3.025,
+    "altitud_m": 672.0
+  },
+  "Manzanares": {
+    "id": 79,
+    "latitud": 38.997,
+    "longitud": -3.37,
+    "altitud_m": 643.0
+  },
+  "Valdepeñas": {
+    "id": 80,
+    "latitud": 38.762,
+    "longitud": -3.384,
+    "altitud_m": 720.0
+  },
+  "A Coruña": {
+    "id": 81,
+    "latitud": 43.362,
+    "longitud": -8.411,
+    "altitud_m": 21.0
+  },
+  "Santiago de Compostela": {
+    "id": 82,
+    "latitud": 42.878,
+    "longitud": -8.544,
+    "altitud_m": 260.0
+  },
+  "Ferrol": {
+    "id": 83,
+    "latitud": 43.484,
+    "longitud": -8.236,
+    "altitud_m": 18.0
+  },
+  "Lugo (A Coruña)": {
+    "id": 84,
+    "latitud": 43.1,
+    "longitud": -8.2,
+    "altitud_m": 454.0
+  },
+  "Carballo": {
+    "id": 85,
+    "latitud": 43.213,
+    "longitud": -8.691,
+    "altitud_m": 105.0
+  },
+  "Córdoba": {
+    "id": 86,
+    "latitud": 37.888,
+    "longitud": -4.779,
+    "altitud_m": 124.0
+  },
+  "Lucena": {
+    "id": 87,
+    "latitud": 37.409,
+    "longitud": -4.485,
+    "altitud_m": 480.0
+  },
+  "Pozoblanco": {
+    "id": 88,
+    "latitud": 38.379,
+    "longitud": -4.848,
+    "altitud_m": 711.0
+  },
+  "Cabra": {
+    "id": 89,
+    "latitud": 37.473,
+    "longitud": -4.442,
+    "altitud_m": 452.0
+  },
+  "Montilla": {
+    "id": 90,
+    "latitud": 37.586,
+    "longitud": -4.638,
+    "altitud_m": 404.0
+  },
+  "Cuenca": {
+    "id": 91,
+    "latitud": 40.07,
+    "longitud": -2.137,
+    "altitud_m": 1000.0
+  },
+  "Tarancón": {
+    "id": 92,
+    "latitud": 40.012,
+    "longitud": -3.007,
+    "altitud_m": 851.0
+  },
+  "Motilla del Palancar": {
+    "id": 93,
+    "latitud": 39.566,
+    "longitud": -1.892,
+    "altitud_m": 889.0
+  },
+  "San Clemente": {
+    "id": 94,
+    "latitud": 39.403,
+    "longitud": -2.428,
+    "altitud_m": 730.0
+  },
+  "Minglanilla": {
+    "id": 95,
+    "latitud": 39.537,
+    "longitud": -1.6,
+    "altitud_m": 835.0
+  },
+  "Girona": {
+    "id": 96,
+    "latitud": 41.979,
+    "longitud": 2.821,
+    "altitud_m": 70.0
+  },
+  "Figueres": {
+    "id": 97,
+    "latitud": 42.266,
+    "longitud": 2.965,
+    "altitud_m": 40.0
+  },
+  "Blanes": {
+    "id": 98,
+    "latitud": 41.674,
+    "longitud": 2.79,
+    "altitud_m": 10.0
+  },
+  "Olot": {
+    "id": 99,
+    "latitud": 42.181,
+    "longitud": 2.49,
+    "altitud_m": 443.0
+  },
+  "Ripoll": {
+    "id": 100,
+    "latitud": 42.2,
+    "longitud": 2.19,
+    "altitud_m": 682.0
+  },
+  "Granada": {
+    "id": 101,
+    "latitud": 37.177,
+    "longitud": -3.6,
+    "altitud_m": 738.0
+  },
+  "Motril": {
+    "id": 102,
+    "latitud": 36.745,
+    "longitud": -3.518,
+    "altitud_m": 55.0
+  },
+  "Guadix": {
+    "id": 103,
+    "latitud": 37.3,
+    "longitud": -3.137,
+    "altitud_m": 949.0
+  },
+  "Loja": {
+    "id": 104,
+    "latitud": 37.169,
+    "longitud": -4.151,
+    "altitud_m": 487.0
+  },
+  "Baza": {
+    "id": 105,
+    "latitud": 37.495,
+    "longitud": -2.766,
+    "altitud_m": 874.0
+  },
+  "Guadalajara": {
+    "id": 106,
+    "latitud": 40.632,
+    "longitud": -3.167,
+    "altitud_m": 685.0
+  },
+  "Azuqueca de Henares": {
+    "id": 107,
+    "latitud": 40.565,
+    "longitud": -3.264,
+    "altitud_m": 628.0
+  },
+  "Molina de Aragón": {
+    "id": 108,
+    "latitud": 40.843,
+    "longitud": -1.884,
+    "altitud_m": 1061.0
+  },
+  "Sigüenza": {
+    "id": 109,
+    "latitud": 41.069,
+    "longitud": -2.639,
+    "altitud_m": 1012.0
+  },
+  "Brihuega": {
+    "id": 110,
+    "latitud": 40.763,
+    "longitud": -2.87,
+    "altitud_m": 897.0
+  },
+  "San Sebastián": {
+    "id": 111,
+    "latitud": 43.318,
+    "longitud": -1.981,
+    "altitud_m": 5.0
+  },
+  "Irun": {
+    "id": 112,
+    "latitud": 43.338,
+    "longitud": -1.789,
+    "altitud_m": 15.0
+  },
+  "Eibar": {
+    "id": 113,
+    "latitud": 43.184,
+    "longitud": -2.472,
+    "altitud_m": 121.0
+  },
+  "Errenteria": {
+    "id": 114,
+    "latitud": 43.312,
+    "longitud": -1.902,
+    "altitud_m": 11.0
+  },
+  "Zarautz": {
+    "id": 115,
+    "latitud": 43.284,
+    "longitud": -2.169,
+    "altitud_m": 5.0
+  },
+  "Huelva": {
+    "id": 116,
+    "latitud": 37.261,
+    "longitud": -6.949,
+    "altitud_m": 56.0
+  },
+  "Moguer": {
+    "id": 117,
+    "latitud": 37.275,
+    "longitud": -6.838,
+    "altitud_m": 54.0
+  },
+  "Ayamonte": {
+    "id": 118,
+    "latitud": 37.213,
+    "longitud": -7.401,
+    "altitud_m": 26.0
+  },
+  "Lepe": {
+    "id": 119,
+    "latitud": 37.255,
+    "longitud": -7.204,
+    "altitud_m": 44.0
+  },
+  "Aracena": {
+    "id": 120,
+    "latitud": 37.893,
+    "longitud": -6.563,
+    "altitud_m": 741.0
+  },
+  "Huesca": {
+    "id": 121,
+    "latitud": 42.136,
+    "longitud": -0.409,
+    "altitud_m": 488.0
+  },
+  "Barbastro": {
+    "id": 122,
+    "latitud": 42.035,
+    "longitud": 0.127,
+    "altitud_m": 341.0
+  },
+  "Monzón": {
+    "id": 123,
+    "latitud": 41.911,
+    "longitud": 0.186,
+    "altitud_m": 282.0
+  },
+  "Jaca": {
+    "id": 124,
+    "latitud": 42.567,
+    "longitud": -0.551,
+    "altitud_m": 820.0
+  },
+  "Sariñena": {
+    "id": 125,
+    "latitud": 41.793,
+    "longitud": -0.162,
+    "altitud_m": 322.0
+  },
+  "Palma": {
+    "id": 126,
+    "latitud": 39.569,
+    "longitud": 2.65,
+    "altitud_m": 13.0
+  },
+  "Calvià": {
+    "id": 127,
+    "latitud": 39.566,
+    "longitud": 2.506,
+    "altitud_m": 111.0
+  },
+  "Manacor": {
+    "id": 128,
+    "latitud": 39.57,
+    "longitud": 3.209,
+    "altitud_m": 130.0
+  },
+  "Maó": {
+    "id": 129,
+    "latitud": 39.886,
+    "longitud": 4.265,
+    "altitud_m": 57.0
+  },
+  "Eivissa": {
+    "id": 130,
+    "latitud": 38.909,
+    "longitud": 1.432,
+    "altitud_m": 24.0
+  },
+  "Jaén": {
+    "id": 131,
+    "latitud": 37.779,
+    "longitud": -3.787,
+    "altitud_m": 574.0
+  },
+  "Linares": {
+    "id": 132,
+    "latitud": 38.095,
+    "longitud": -3.636,
+    "altitud_m": 418.0
+  },
+  "Úbeda": {
+    "id": 133,
+    "latitud": 38.013,
+    "longitud": -3.37,
+    "altitud_m": 757.0
+  },
+  "Andújar": {
+    "id": 134,
+    "latitud": 38.039,
+    "longitud": -4.051,
+    "altitud_m": 212.0
+  },
+  "Baeza": {
+    "id": 135,
+    "latitud": 37.994,
+    "longitud": -3.471,
+    "altitud_m": 790.0
+  },
+  "Logroño": {
+    "id": 136,
+    "latitud": 42.466,
+    "longitud": -2.445,
+    "altitud_m": 384.0
+  },
+  "Calahorra": {
+    "id": 137,
+    "latitud": 42.305,
+    "longitud": -1.965,
+    "altitud_m": 358.0
+  },
+  "Haro": {
+    "id": 138,
+    "latitud": 42.576,
+    "longitud": -2.85,
+    "altitud_m": 479.0
+  },
+  "Arnedo": {
+    "id": 139,
+    "latitud": 42.225,
+    "longitud": -2.099,
+    "altitud_m": 546.0
+  },
+  "Nájera": {
+    "id": 140,
+    "latitud": 42.418,
+    "longitud": -2.733,
+    "altitud_m": 521.0
+  },
+  "León": {
+    "id": 141,
+    "latitud": 42.598,
+    "longitud": -5.571,
+    "altitud_m": 838.0
+  },
+  "Ponferrada": {
+    "id": 142,
+    "latitud": 42.549,
+    "longitud": -6.593,
+    "altitud_m": 543.0
+  },
+  "Astorga": {
+    "id": 143,
+    "latitud": 42.455,
+    "longitud": -6.056,
+    "altitud_m": 868.0
+  },
+  "Sahagún": {
+    "id": 144,
+    "latitud": 42.371,
+    "longitud": -5.033,
+    "altitud_m": 816.0
+  },
+  "La Bañeza": {
+    "id": 145,
+    "latitud": 42.299,
+    "longitud": -5.896,
+    "altitud_m": 777.0
+  },
+  "Lleida": {
+    "id": 146,
+    "latitud": 41.618,
+    "longitud": 0.62,
+    "altitud_m": 155.0
+  },
+  "Balaguer": {
+    "id": 147,
+    "latitud": 41.791,
+    "longitud": 0.808,
+    "altitud_m": 233.0
+  },
+  "Cervera": {
+    "id": 148,
+    "latitud": 41.671,
+    "longitud": 1.272,
+    "altitud_m": 554.0
+  },
+  "Tremp": {
+    "id": 149,
+    "latitud": 42.167,
+    "longitud": 0.895,
+    "altitud_m": 468.0
+  },
+  "Solsona": {
+    "id": 150,
+    "latitud": 41.993,
+    "longitud": 1.519,
+    "altitud_m": 664.0
+  },
+  "Lugo": {
+    "id": 151,
+    "latitud": 43.012,
+    "longitud": -7.556,
+    "altitud_m": 454.0
+  },
+  "Monforte de Lemos": {
+    "id": 152,
+    "latitud": 42.521,
+    "longitud": -7.512,
+    "altitud_m": 298.0
+  },
+  "Viveiro": {
+    "id": 153,
+    "latitud": 43.661,
+    "longitud": -7.593,
+    "altitud_m": 9.0
+  },
+  "Vilalba": {
+    "id": 154,
+    "latitud": 43.299,
+    "longitud": -7.681,
+    "altitud_m": 500.0
+  },
+  "Sarria": {
+    "id": 155,
+    "latitud": 42.779,
+    "longitud": -7.415,
+    "altitud_m": 664.0
+  },
+  "Madrid": {
+    "id": 156,
+    "latitud": 40.416,
+    "longitud": -3.703,
+    "altitud_m": 667.0
+  },
+  "Móstoles": {
+    "id": 157,
+    "latitud": 40.323,
+    "longitud": -3.865,
+    "altitud_m": 665.0
+  },
+  "Alcorcón": {
+    "id": 158,
+    "latitud": 40.349,
+    "longitud": -3.825,
+    "altitud_m": 670.0
+  },
+  "Leganés": {
+    "id": 159,
+    "latitud": 40.328,
+    "longitud": -3.764,
+    "altitud_m": 666.0
+  },
+  "Getafe": {
+    "id": 160,
+    "latitud": 40.305,
+    "longitud": -3.731,
+    "altitud_m": 620.0
+  },
+  "Málaga": {
+    "id": 161,
+    "latitud": 36.72,
+    "longitud": -4.42,
+    "altitud_m": 11.0
+  },
+  "Marbella": {
+    "id": 162,
+    "latitud": 36.51,
+    "longitud": -4.886,
+    "altitud_m": 18.0
+  },
+  "Vélez-Málaga": {
+    "id": 163,
+    "latitud": 36.782,
+    "longitud": -4.103,
+    "altitud_m": 88.0
+  },
+  "Estepona": {
+    "id": 164,
+    "latitud": 36.427,
+    "longitud": -5.146,
+    "altitud_m": 22.0
+  },
+  "Antequera": {
+    "id": 165,
+    "latitud": 37.018,
+    "longitud": -4.559,
+    "altitud_m": 575.0
+  },
+  "Murcia": {
+    "id": 166,
+    "latitud": 37.983,
+    "longitud": -1.13,
+    "altitud_m": 43.0
+  },
+  "Cartagena": {
+    "id": 167,
+    "latitud": 37.606,
+    "longitud": -0.986,
+    "altitud_m": 8.0
+  },
+  "Lorca": {
+    "id": 168,
+    "latitud": 37.677,
+    "longitud": -1.697,
+    "altitud_m": 331.0
+  },
+  "Molina de Segura": {
+    "id": 169,
+    "latitud": 38.054,
+    "longitud": -1.208,
+    "altitud_m": 76.0
+  },
+  "Yecla": {
+    "id": 170,
+    "latitud": 38.614,
+    "longitud": -1.115,
+    "altitud_m": 620.0
+  },
+  "Pamplona": {
+    "id": 171,
+    "latitud": 42.812,
+    "longitud": -1.645,
+    "altitud_m": 449.0
+  },
+  "Tudela": {
+    "id": 172,
+    "latitud": 42.061,
+    "longitud": -1.607,
+    "altitud_m": 263.0
+  },
+  "Barañáin": {
+    "id": 173,
+    "latitud": 42.799,
+    "longitud": -1.681,
+    "altitud_m": 430.0
+  },
+  "Estella": {
+    "id": 174,
+    "latitud": 42.671,
+    "longitud": -2.032,
+    "altitud_m": 426.0
+  },
+  "Tafalla": {
+    "id": 175,
+    "latitud": 42.527,
+    "longitud": -1.68,
+    "altitud_m": 389.0
+  },
+  "Ourense": {
+    "id": 176,
+    "latitud": 42.336,
+    "longitud": -7.864,
+    "altitud_m": 125.0
+  },
+  "Verín": {
+    "id": 177,
+    "latitud": 41.94,
+    "longitud": -7.438,
+    "altitud_m": 612.0
+  },
+  "Xinzo de Limia": {
+    "id": 178,
+    "latitud": 42.063,
+    "longitud": -7.727,
+    "altitud_m": 700.0
+  },
+  "O Carballiño": {
+    "id": 179,
+    "latitud": 42.431,
+    "longitud": -8.076,
+    "altitud_m": 385.0
+  },
+  "Ribadavia": {
+    "id": 180,
+    "latitud": 42.289,
+    "longitud": -8.143,
+    "altitud_m": 78.0
+  },
+  "Palencia": {
+    "id": 181,
+    "latitud": 42.01,
+    "longitud": -4.532,
+    "altitud_m": 740.0
+  },
+  "Aguilar de Campoo": {
+    "id": 182,
+    "latitud": 42.793,
+    "longitud": -4.26,
+    "altitud_m": 898.0
+  },
+  "Guardo": {
+    "id": 183,
+    "latitud": 42.796,
+    "longitud": -4.841,
+    "altitud_m": 1012.0
+  },
+  "Venta de Baños": {
+    "id": 184,
+    "latitud": 41.92,
+    "longitud": -4.489,
+    "altitud_m": 726.0
+  },
+  "Herrera de Pisuerga": {
+    "id": 185,
+    "latitud": 42.59,
+    "longitud": -4.331,
+    "altitud_m": 850.0
+  },
+  "Vigo": {
+    "id": 186,
+    "latitud": 42.231,
+    "longitud": -8.712,
+    "altitud_m": 31.0
+  },
+  "Pontevedra": {
+    "id": 187,
+    "latitud": 42.433,
+    "longitud": -8.648,
+    "altitud_m": 19.0
+  },
+  "Marín": {
+    "id": 188,
+    "latitud": 42.392,
+    "longitud": -8.7,
+    "altitud_m": 10.0
+  },
+  "Vilagarcía de Arousa": {
+    "id": 189,
+    "latitud": 42.596,
+    "longitud": -8.764,
+    "altitud_m": 6.0
+  },
+  "Cangas": {
+    "id": 190,
+    "latitud": 42.263,
+    "longitud": -8.784,
+    "altitud_m": 18.0
+  },
+  "Salamanca": {
+    "id": 191,
+    "latitud": 40.965,
+    "longitud": -5.664,
+    "altitud_m": 800.0
+  },
+  "Béjar": {
+    "id": 192,
+    "latitud": 40.387,
+    "longitud": -5.763,
+    "altitud_m": 963.0
+  },
+  "Ciudad Rodrigo": {
+    "id": 193,
+    "latitud": 40.596,
+    "longitud": -6.533,
+    "altitud_m": 652.0
+  },
+  "Santa Marta de Tormes": {
+    "id": 194,
+    "latitud": 40.934,
+    "longitud": -5.632,
+    "altitud_m": 793.0
+  },
+  "Alba de Tormes": {
+    "id": 195,
+    "latitud": 40.824,
+    "longitud": -5.515,
+    "altitud_m": 833.0
+  },
+  "Segovia": {
+    "id": 196,
+    "latitud": 40.948,
+    "longitud": -4.118,
+    "altitud_m": 1002.0
+  },
+  "Cuéllar": {
+    "id": 197,
+    "latitud": 41.4,
+    "longitud": -4.32,
+    "altitud_m": 857.0
+  },
+  "Sepúlveda": {
+    "id": 198,
+    "latitud": 41.297,
+    "longitud": -3.75,
+    "altitud_m": 1014.0
+  },
+  "Riaza": {
+    "id": 199,
+    "latitud": 41.279,
+    "longitud": -3.49,
+    "altitud_m": 1194.0
+  },
+  "Cantalejo": {
+    "id": 200,
+    "latitud": 41.261,
+    "longitud": -3.935,
+    "altitud_m": 934.0
+  },
+  "Sevilla": {
+    "id": 201,
+    "latitud": 37.389,
+    "longitud": -5.984,
+    "altitud_m": 13.0
+  },
+  "Dos Hermanas": {
+    "id": 202,
+    "latitud": 37.284,
+    "longitud": -5.92,
+    "altitud_m": 50.0
+  },
+  "Alcalá de Guadaíra": {
+    "id": 203,
+    "latitud": 37.34,
+    "longitud": -5.838,
+    "altitud_m": 47.0
+  },
+  "Utrera": {
+    "id": 204,
+    "latitud": 37.186,
+    "longitud": -5.782,
+    "altitud_m": 49.0
+  },
+  "Écija": {
+    "id": 205,
+    "latitud": 37.541,
+    "longitud": -5.082,
+    "altitud_m": 101.0
+  },
+  "Soria": {
+    "id": 206,
+    "latitud": 41.764,
+    "longitud": -2.465,
+    "altitud_m": 1063.0
+  },
+  "Almazán": {
+    "id": 207,
+    "latitud": 41.486,
+    "longitud": -2.533,
+    "altitud_m": 950.0
+  },
+  "Ágreda": {
+    "id": 208,
+    "latitud": 41.862,
+    "longitud": -1.925,
+    "altitud_m": 895.0
+  },
+  "El Burgo de Osma": {
+    "id": 209,
+    "latitud": 41.586,
+    "longitud": -3.07,
+    "altitud_m": 895.0
+  },
+  "Medinaceli": {
+    "id": 210,
+    "latitud": 41.171,
+    "longitud": -2.43,
+    "altitud_m": 1201.0
+  },
+  "Tarragona": {
+    "id": 211,
+    "latitud": 41.119,
+    "longitud": 1.244,
+    "altitud_m": 70.0
+  },
+  "Reus": {
+    "id": 212,
+    "latitud": 41.154,
+    "longitud": 1.108,
+    "altitud_m": 134.0
+  },
+  "Tortosa": {
+    "id": 213,
+    "latitud": 40.812,
+    "longitud": 0.522,
+    "altitud_m": 10.0
+  },
+  "Amposta": {
+    "id": 214,
+    "latitud": 40.714,
+    "longitud": 0.582,
+    "altitud_m": 9.0
+  },
+  "Calafell": {
+    "id": 215,
+    "latitud": 41.2,
+    "longitud": 1.568,
+    "altitud_m": 15.0
+  },
+  "Teruel": {
+    "id": 216,
+    "latitud": 40.345,
+    "longitud": -1.106,
+    "altitud_m": 916.0
+  },
+  "Alcañiz": {
+    "id": 217,
+    "latitud": 41.05,
+    "longitud": -0.13,
+    "altitud_m": 338.0
+  },
+  "Montalbán": {
+    "id": 218,
+    "latitud": 40.824,
+    "longitud": -0.797,
+    "altitud_m": 929.0
+  },
+  "Calanda": {
+    "id": 219,
+    "latitud": 41.044,
+    "longitud": -0.227,
+    "altitud_m": 390.0
+  },
+  "Utrillas": {
+    "id": 220,
+    "latitud": 40.807,
+    "longitud": -0.878,
+    "altitud_m": 1005.0
+  },
+  "Toledo": {
+    "id": 221,
+    "latitud": 39.857,
+    "longitud": -4.024,
+    "altitud_m": 529.0
+  },
+  "Talavera de la Reina": {
+    "id": 222,
+    "latitud": 39.96,
+    "longitud": -4.833,
+    "altitud_m": 371.0
+  },
+  "Illescas": {
+    "id": 223,
+    "latitud": 40.126,
+    "longitud": -3.848,
+    "altitud_m": 614.0
+  },
+  "Madridejos": {
+    "id": 224,
+    "latitud": 39.467,
+    "longitud": -3.532,
+    "altitud_m": 696.0
+  },
+  "Quintanar de la Orden": {
+    "id": 225,
+    "latitud": 39.591,
+    "longitud": -2.845,
+    "altitud_m": 692.0
+  },
+  "Valencia": {
+    "id": 226,
+    "latitud": 39.469,
+    "longitud": -0.376,
+    "altitud_m": 13.0
+  },
+  "Gandia": {
+    "id": 227,
+    "latitud": 38.967,
+    "longitud": -0.183,
+    "altitud_m": 19.0
+  },
+  "Sagunto": {
+    "id": 228,
+    "latitud": 39.68,
+    "longitud": -0.267,
+    "altitud_m": 48.0
+  },
+  "Torrent": {
+    "id": 229,
+    "latitud": 39.437,
+    "longitud": -0.465,
+    "altitud_m": 56.0
+  },
+  "Alzira": {
+    "id": 230,
+    "latitud": 39.151,
+    "longitud": -0.435,
+    "altitud_m": 20.0
+  },
+  "Valladolid": {
+    "id": 231,
+    "latitud": 41.652,
+    "longitud": -4.728,
+    "altitud_m": 694.0
+  },
+  "Medina del Campo": {
+    "id": 232,
+    "latitud": 41.31,
+    "longitud": -4.909,
+    "altitud_m": 721.0
+  },
+  "Laguna de Duero": {
+    "id": 233,
+    "latitud": 41.584,
+    "longitud": -4.726,
+    "altitud_m": 698.0
+  },
+  "Tordesillas": {
+    "id": 234,
+    "latitud": 41.501,
+    "longitud": -5.0,
+    "altitud_m": 702.0
+  },
+  "Peñafiel": {
+    "id": 235,
+    "latitud": 41.598,
+    "longitud": -4.113,
+    "altitud_m": 770.0
+  },
+  "Zamora": {
+    "id": 236,
+    "latitud": 41.503,
+    "longitud": -5.744,
+    "altitud_m": 656.0
+  },
+  "Benavente": {
+    "id": 237,
+    "latitud": 42.002,
+    "longitud": -5.679,
+    "altitud_m": 724.0
+  },
+  "Toro": {
+    "id": 238,
+    "latitud": 41.521,
+    "longitud": -5.395,
+    "altitud_m": 745.0
+  },
+  "Puebla de Sanabria": {
+    "id": 239,
+    "latitud": 42.058,
+    "longitud": -6.634,
+    "altitud_m": 960.0
+  },
+  "Bermillo de Sayago": {
+    "id": 240,
+    "latitud": 41.334,
+    "longitud": -6.114,
+    "altitud_m": 769.0
+  },
+  "Zaragoza": {
+    "id": 241,
+    "latitud": 41.656,
+    "longitud": -0.877,
+    "altitud_m": 199.0
+  },
+  "Calatayud": {
+    "id": 242,
+    "latitud": 41.353,
+    "longitud": -1.641,
+    "altitud_m": 534.0
+  },
+  "Tarazona": {
+    "id": 243,
+    "latitud": 41.905,
+    "longitud": -1.727,
+    "altitud_m": 480.0
+  },
+  "Ejea de los Caballeros": {
+    "id": 244,
+    "latitud": 42.127,
+    "longitud": -1.138,
+    "altitud_m": 320.0
+  },
+  "Caspe": {
+    "id": 245,
+    "latitud": 41.234,
+    "longitud": -0.04,
+    "altitud_m": 155.0
+  }
+}

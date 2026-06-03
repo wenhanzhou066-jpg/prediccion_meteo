@@ -1,0 +1,37 @@
+{
+  "temperatura_2m": {
+    "mae": 0.4859,
+    "rmse": 0.6972,
+    "bias": 0.0017
+  },
+  "precipitacion_mm": {
+    "mae": 0.1165,
+    "rmse": 0.3522,
+    "bias": 0.0244
+  },
+  "viento_vel_ms": {
+    "mae": 0.4307,
+    "rmse": 0.6115,
+    "bias": 0.0002
+  },
+  "viento_racha_ms": {
+    "mae": 0.8519,
+    "rmse": 1.207,
+    "bias": 0.1274
+  },
+  "humedad_rel_pct": {
+    "mae": 2.7112,
+    "rmse": 4.0122,
+    "bias": -0.0121
+  },
+  "presion_hpa": {
+    "mae": 1.0046,
+    "rmse": 1.4932,
+    "bias": 0.033
+  },
+  "reflectividad_dbz": {
+    "mae": 7.1076,
+    "rmse": 12.3164,
+    "bias": 0.7789
+  }
+}
