@@ -135,25 +135,56 @@ html, body, #root {
 }
 
 /* ═══════════════════════════════════════
-   4. SLIDER
+   4. BOTTOM STACK — wrapper for slider + panels
 ═══════════════════════════════════════ */
-.contenedor-slider {
+.bottom-stack {
   position: fixed;
-  bottom: 28px;
+  bottom: 24px;
   left: 50%;
   transform: translateX(-50%);
+  width: calc(100% - 32px);
+  max-width: 580px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 14px;
+  z-index: 2500;
+  pointer-events: none;
+  transition: left 0.3s ease, max-width 0.3s ease, transform 0.3s ease;
+}
+.bottom-stack > * { pointer-events: auto; }
+
+.panel-abierto .bottom-stack { display: none; }
+
+@media (min-width: 768px) {
+  .panel-abierto .bottom-stack {
+    display: flex;
+    left: calc((100vw - var(--panel-md)) / 2);
+    max-width: calc(100vw - var(--panel-md) - 32px);
+  }
+}
+@media (min-width: 1100px) {
+  .panel-abierto .bottom-stack {
+    left: calc((100vw - var(--panel-lg)) / 2);
+    max-width: calc(100vw - var(--panel-lg) - 32px);
+  }
+}
+
+/* ═══════════════════════════════════════
+   4.1 SLIDER
+═══════════════════════════════════════ */
+.contenedor-slider {
+  width: 100%;
+  box-sizing: border-box;
   background: var(--color-bg-dark);
   padding: 12px 24px;
   border-radius: 40px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  z-index: 1000;
   backdrop-filter: blur(8px);
   color: white;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
-  width: calc(100% - 48px);
-  max-width: 400px;
   font-size: 14px;
 }
 
@@ -164,27 +195,6 @@ html, body, #root {
   accent-color: #ff9f43;
 }
 
-/* Mobile: hide slider when panel is open (panel covers it) */
-.panel-abierto .contenedor-slider {
-  display: none;
-}
-
-/* Tablet+: re-show slider, re-center it in the visible map area */
-@media (min-width: 768px) {
-  .panel-abierto .contenedor-slider {
-    display: flex;
-    left: calc((100vw - var(--panel-md)) / 2);
-    transform: translateX(-50%);
-    max-width: calc(100vw - var(--panel-md) - 48px);
-  }
-}
-
-@media (min-width: 1100px) {
-  .panel-abierto .contenedor-slider {
-    left: calc((100vw - var(--panel-lg)) / 2);
-    max-width: calc(100vw - var(--panel-lg) - 48px);
-  }
-}
 
 /* ═══════════════════════════════════════
    5. RADAR CONTROLS
@@ -196,6 +206,14 @@ html, body, #root {
   top: 16px;
   right: 16px;
   z-index: 3000;
+  transition: right 0.3s ease;
+}
+
+@media (min-width: 768px) {
+  .panel-abierto .radar-toggle { right: calc(var(--panel-md) + 16px); }
+}
+@media (min-width: 1100px) {
+  .panel-abierto .radar-toggle { right: calc(var(--panel-lg) + 16px); }
 }
 
 .radar-btn,
@@ -226,17 +244,12 @@ html, body, #root {
 
 /* Player panel — bottom */
 .radar-panel {
-  position: fixed;
-  bottom: 108px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: calc(100% - 32px);
-  max-width: 580px;
+  width: 100%;
+  box-sizing: border-box;
   background: rgba(16, 20, 36, 0.93);
   backdrop-filter: blur(14px);
   border-radius: 16px;
   padding: 12px 14px 10px;
-  z-index: 2500;
   box-shadow: 0 6px 28px rgba(0,0,0,0.5);
   color: white;
   font-size: 13px;
@@ -364,7 +377,7 @@ html, body, #root {
 .radar-fecha-picker {
   display: flex;
   align-items: center;
-  gap: 5px;
+  gap: 6px;
 }
 
 .radar-fecha-input {
@@ -407,32 +420,6 @@ html, body, #root {
 }
 .radar-reciente-btn:hover { background: rgba(255,255,255,0.22); }
 
-/* Hide panel on mobile when side panel is open */
-.panel-abierto .radar-panel  { display: none; }
-.panel-abierto .pysteps-panel { display: none; }
-.panel-abierto .pysteps10min-panel { display: none; }
-.panel-abierto .acum-panel   { display: none; }
-
-@media (min-width: 768px) {
-  .panel-abierto .radar-panel,
-  .panel-abierto .pysteps-panel,
-  .panel-abierto .pysteps10min-panel,
-  .panel-abierto .acum-panel {
-    display: block;
-    left: calc((100vw - var(--panel-md)) / 2);
-    transform: translateX(-50%);
-    max-width: calc(100vw - var(--panel-md) - 32px);
-  }
-}
-@media (min-width: 1100px) {
-  .panel-abierto .radar-panel,
-  .panel-abierto .pysteps-panel,
-  .panel-abierto .pysteps10min-panel,
-  .panel-abierto .acum-panel {
-    left: calc((100vw - var(--panel-lg)) / 2);
-    max-width: calc(100vw - var(--panel-lg) - 32px);
-  }
-}
 
 /* ═══════════════════════════════════════
    5.5 PYSTEPS CONTROLS
@@ -440,24 +427,15 @@ html, body, #root {
 
 /* Player panel — bottom */
 .pysteps-panel {
-  position: fixed;
-  bottom: 108px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: calc(100% - 32px);
-  max-width: 580px;
+  width: 100%;
+  box-sizing: border-box;
   background: rgba(36, 20, 16, 0.93);
   backdrop-filter: blur(14px);
   border-radius: 16px;
   padding: 12px 14px 10px;
-  z-index: 2400;
   box-shadow: 0 6px 28px rgba(0,0,0,0.5);
   color: white;
   font-size: 13px;
-}
-
-.pysteps-panel.with-radar {
-  bottom: 234px;
 }
 
 .pysteps-panel-top {
@@ -490,11 +468,12 @@ html, body, #root {
   background: #ff7f50;
   border: 1px solid #ff7f50;
   color: white;
-  border-radius: 6px;
+  border-radius: 8px;
   padding: 4px 10px;
-  font-size: 11px;
+  font-size: 12px;
   cursor: pointer;
   font-weight: 600;
+  line-height: 1;
   transition: background 0.15s;
 }
 .pysteps-set-btn:hover { background: #ff6a35; }
@@ -634,32 +613,16 @@ html, body, #root {
 /* Pysteps 10-minutal panel                */
 /* ─────────────────────────────────────── */
 .pysteps10min-panel {
-  position: fixed;
-  bottom: 108px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: calc(100% - 32px);
-  max-width: 580px;
+  width: 100%;
+  box-sizing: border-box;
   padding: 12px 14px 10px;
   background: rgba(28, 20, 36, 0.93);
   border-radius: 16px;
   box-shadow: 0 6px 28px rgba(0,0,0,0.5);
   backdrop-filter: blur(14px);
   color: white;
-  z-index: 2300;
 }
 
-.pysteps10min-panel.with-radar {
-  bottom: 234px;
-}
-
-.pysteps10min-panel.with-pysteps {
-  bottom: 234px;
-}
-
-.pysteps10min-panel.with-radar.with-pysteps {
-  bottom: 360px;
-}
 
 .pysteps10min-panel-top {
   display: flex;
@@ -688,13 +651,14 @@ html, body, #root {
 
 .pysteps10min-set-btn,
 .pysteps10min-reciente-btn {
-  padding: 5px 10px;
-  border: none;
-  border-radius: 6px;
+  padding: 4px 10px;
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 8px;
   background: rgba(255,255,255,0.2);
   color: white;
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 600;
+  line-height: 1;
   cursor: pointer;
   transition: background 0.15s;
 }
@@ -1055,27 +1019,16 @@ th:first-child {
 
 /* Player panel */
 .acum-panel {
-  position: fixed;
-  bottom: 108px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: calc(100% - 32px);
-  max-width: 580px;
+  width: 100%;
+  box-sizing: border-box;
   background: rgba(16, 36, 20, 0.93);
   backdrop-filter: blur(14px);
   border-radius: 16px;
   padding: 12px 14px 10px;
-  z-index: 2300;
   box-shadow: 0 6px 28px rgba(0,0,0,0.5);
   color: white;
   font-size: 13px;
 }
-.acum-panel.with-radar                { bottom: 234px; }
-.acum-panel.with-pysteps              { bottom: 234px; }
-.acum-panel.with-pysteps10min         { bottom: 234px; }
-.acum-panel.with-radar.with-pysteps   { bottom: 360px; }
-.acum-panel.with-radar.with-pysteps10min { bottom: 360px; }
-.acum-panel.with-pysteps.with-pysteps10min { bottom: 360px; }
 
 .acum-panel-top {
   display: flex;
@@ -1087,6 +1040,7 @@ th:first-child {
 .acum-fecha-picker {
   display: flex;
   align-items: center;
+  gap: 6px;
 }
 
 .acum-fecha-input {
@@ -1251,25 +1205,16 @@ th:first-child {
 
 /* Player panel */
 .com2602-panel {
-  position: fixed;
-  bottom: 108px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: calc(100% - 32px);
-  max-width: 580px;
+  width: 100%;
+  box-sizing: border-box;
   background: rgba(28, 20, 36, 0.93);
   backdrop-filter: blur(14px);
   border-radius: 16px;
   padding: 12px 14px 10px;
-  z-index: 2500;
   box-shadow: 0 6px 28px rgba(0,0,0,0.5);
   color: white;
   font-size: 13px;
 }
-.com2602-panel.with-radar       { bottom: 234px; }
-.com2602-panel.with-pysteps     { bottom: 234px; }
-.com2602-panel.with-pysteps10min { bottom: 234px; }
-.com2602-panel.with-acum        { bottom: 234px; }
 
 .com2602-panel-top {
   display: flex;
@@ -1336,12 +1281,13 @@ th:first-child {
 .com2602-set-btn,
 .com2602-reciente-btn {
   background: rgba(155,89,182,0.85);
-  border: none;
-  border-radius: 6px;
-  padding: 5px 10px;
+  border: 1px solid rgba(155,89,182,0.85);
+  border-radius: 8px;
+  padding: 4px 10px;
   color: white;
   font-size: 12px;
   font-weight: 600;
+  line-height: 1;
   cursor: pointer;
   transition: background 0.2s;
 }

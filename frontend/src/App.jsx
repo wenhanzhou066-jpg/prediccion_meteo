@@ -783,6 +783,9 @@ function App() {
         </button>
       </div>
 
+      {/* Bottom stack — all bottom panels + slider in one fixed wrapper */}
+      <div className="bottom-stack">
+
       {/* Radar player panel — bottom */}
       {radarActivo && (radarFrames.length > 0 || radarCargando) && (
         <div className="radar-panel">
@@ -885,7 +888,7 @@ function App() {
 
       {/* Pysteps player panel — bottom (offset if radar also visible) */}
       {pystepsActivo && (
-        <div className={`pysteps-panel${radarActivo ? ' with-radar' : ''}`}>
+        <div className="pysteps-panel">
 
           {/* Row 1: date picker + timestamp + controls */}
           <div className="pysteps-panel-top">
@@ -981,7 +984,7 @@ function App() {
 
       {/* Pysteps 10-minutal player panel — bottom */}
       {pysteps10minActivo && (
-        <div className={`pysteps10min-panel${radarActivo ? ' with-radar' : ''}${pystepsActivo ? ' with-pysteps' : ''}`}>
+        <div className="pysteps10min-panel">
 
           {/* Row 1: date picker + timestamp + controls */}
           <div className="pysteps10min-panel-top">
@@ -1077,7 +1080,7 @@ function App() {
 
       {/* Acumulacion player panel — bottom */}
       {acumActivo && (
-        <div className={`acum-panel${radarActivo ? ' with-radar' : ''}${pystepsActivo ? ' with-pysteps' : ''}${pysteps10minActivo ? ' with-pysteps10min' : ''}`}>
+        <div className="acum-panel">
           <div className="acum-panel-top">
             <div className="acum-fecha-picker">
               <input
@@ -1152,7 +1155,7 @@ function App() {
 
       {/* COM2602 player panel — bottom */}
       {com2602Activo && (
-        <div className={`com2602-panel${radarActivo ? ' with-radar' : ''}${pystepsActivo ? ' with-pysteps' : ''}${pysteps10minActivo ? ' with-pysteps10min' : ''}${acumActivo ? ' with-acum' : ''}`}>
+        <div className="com2602-panel">
           <div className="com2602-panel-top">
             <div className="com2602-fecha-picker">
               <input
@@ -1262,6 +1265,8 @@ function App() {
           id="time-slider"
         />
       </div>
+
+      </div>{/* end .bottom-stack */}
     </div>
   );
 }
