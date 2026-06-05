@@ -1367,3 +1367,81 @@ th:first-child {
   padding: 0 2px;
 }
 .com2602-leyenda-labels span:last-child { color: rgba(255,255,255,0.65); }
+
+/* ═══════════════════════════════════════
+   8. DISCLAIMER MODAL
+═══════════════════════════════════════ */
+.disclaimer-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  padding: 20px;
+  animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.disclaimer-card {
+  background: white;
+  color: #2c3e50;
+  max-width: 520px;
+  width: 100%;
+  border-radius: 16px;
+  padding: 28px 28px 24px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+  animation: cardIn 0.35s ease-out;
+}
+
+@keyframes cardIn {
+  from { transform: translateY(20px) scale(0.96); opacity: 0; }
+  to   { transform: translateY(0) scale(1); opacity: 1; }
+}
+
+.disclaimer-card h2 {
+  margin: 0 0 14px;
+  font-size: 18px;
+  color: #2c3e50;
+}
+
+.disclaimer-card p {
+  margin: 0 0 12px;
+  font-size: 14px;
+  line-height: 1.55;
+  color: #4a5568;
+}
+
+.disclaimer-card .disclaimer-note {
+  font-size: 13px;
+  color: #718096;
+  font-style: italic;
+  margin-bottom: 20px;
+}
+
+.disclaimer-btn {
+  display: block;
+  width: 100%;
+  background: var(--color-primary);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 12px 16px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.disclaimer-btn:hover { background: #357abd; }
+
+@media (max-width: 480px) {
+  .disclaimer-card { padding: 22px 20px 20px; }
+  .disclaimer-card h2 { font-size: 16px; }
+  .disclaimer-card p  { font-size: 13px; }
+}

@@ -76,6 +76,14 @@ function FlyTo({ coords }) {
 function App() {
   const hoyISO = new Date().toISOString().slice(0, 10); // 'YYYY-MM-DD'
 
+  const [disclaimerVisible, setDisclaimerVisible] = useState(
+    () => !localStorage.getItem('disclaimer_dismissed_v1')
+  );
+  const dismissDisclaimer = () => {
+    localStorage.setItem('disclaimer_dismissed_v1', '1');
+    setDisclaimerVisible(false);
+  };
+
   const [estaciones, setEstaciones] = useState([]);
   const [poligonos, setPoligonos] = useState(null);
   const [seleccionada, setSeleccionada] = useState(null);
@@ -590,6 +598,29 @@ function App() {
 
   return (
     <div className={`app-container${seleccionada ? ' panel-abierto' : ''}`}>
+      {disclaimerVisible && (
+        <div className="disclaimer-overlay" role="dialog" aria-modal="true" aria-labelledby="disclaimer-title">
+          <div className="disclaimer-card">
+            <h2 id="disclaimer-title">Aviso sobre las capas del mapa</h2>
+            <p>
+              Algunas capas (<strong>Radar de Precipitación</strong>, <strong>Pysteps</strong>,{' '}
+              <strong>Predicción 10-minutal</strong>, <strong>Acumulación Horaria</strong> y{' '}
+              <strong>Radar COM2602</strong>) pueden no mostrarse o cargar lentamente.
+            </p>
+            <p>
+              Estas capas se sirven desde <strong>Supabase</strong> en su plan gratuito, que tiene
+              memoria y ancho de banda limitados para datos ráster pesados. Cuando hay muchas
+              peticiones simultáneas o el ráster es muy grande, Supabase puede no entregar los datos.
+            </p>
+            <p className="disclaimer-note">
+              La predicción puntual por estación, el slider temporal y el buscador funcionan con normalidad.
+            </p>
+            <button className="disclaimer-btn" onClick={dismissDisclaimer}>
+              Entendido
+            </button>
+          </div>
+        </div>
+      )}
       {cargando && <div className="loading-overlay">Actualizando mapa...</div>}
 
       <div className="buscador">
