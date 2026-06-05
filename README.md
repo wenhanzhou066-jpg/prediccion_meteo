@@ -6,12 +6,13 @@
 ![Stack](https://img.shields.io/badge/XGBoost-GPU-orange?logo=python)
 ![Stack](https://img.shields.io/badge/Supabase-Postgres%20+%20PostGIS-3ECF8E?logo=supabase)
 ![Stack](https://img.shields.io/badge/Leaflet-1.9-199900?logo=leaflet)
+![Stack](https://img.shields.io/badge/Vercel-deployed-000000?logo=vercel)
 
 
 
 ## Resumen ejecutivo
 
-Aplicación end-to-end de predicción meteorológica para ~200 estaciones repartidas por España. Un pipeline de Python descarga años de datos históricos de Open-Meteo, entrena un modelo XGBoost multi-output en GPU que predice 7 variables meteorológicas a 240 horas vista (10 días), e inserta los resultados en Supabase Postgres con PostGIS. El frontend en React 19 + Leaflet consulta la base de datos a través de funciones RPC y renderiza mapas interactivos, overlays de radar en tiempo real, imágenes de satélite, predicciones Pysteps y pronósticos por estación.
+Aplicación end-to-end de predicción meteorológica para ~200 estaciones repartidas por España. Un pipeline de Python descarga años de datos históricos de Open-Meteo, entrena un modelo XGBoost multi-output en GPU que predice 7 variables meteorológicas a 240 horas vista (10 días), e inserta los resultados en Supabase Postgres con PostGIS. El frontend en React 19 + Leaflet consume una **API REST autogenerada por Supabase (PostgREST)** envuelta en funciones RPC de Postgres, y renderiza mapas interactivos, overlays de radar en tiempo real, imágenes de satélite, predicciones Pysteps y pronósticos por estación. Desplegado en Vercel.
 
 ---
 
@@ -32,7 +33,7 @@ Aplicación end-to-end de predicción meteorológica para ~200 estaciones repart
 │                             │                                       │
 │              ┌──────────────┼──────────────────┐                    │
 │              ↓              ↓                  ↓                    │
-│       ciclo_prediccion  paso_horario   prediccion_punto              │
+│       ciclo_prediccion  paso_horario   prediccion_punto             │
 │              └──────────────┴──────────────────┘                    │
 │                       SUPABASE POSTGRES + PostGIS                   │
 │              ┌──────────────────────────────────┐                   │
@@ -40,17 +41,20 @@ Aplicación end-to-end de predicción meteorológica para ~200 estaciones repart
 │              │  pysteps frames  │  satélite frames│                 │
 │              └──────────────────────────────────┘                   │
 │                             │                                       │
-│                      13 funciones RPC                               │
+│              API REST (PostgREST) + 13 funciones RPC                │
 │                             │                                       │
 └─────────────────────────────┼───────────────────────────────────────┘
                               ↓
+                  HTTPS / JSON (REST endpoints)
+                              ↓
 ┌─────────────────────────────────────────────────────────────────────┐
-│                           FRONTEND                                  │
+│                       FRONTEND (Vercel)                             │
 │                                                                     │
 │  React 19 + Vite 8 + Leaflet + @supabase/supabase-js               │
 │                                                                     │
 │  Mapa de estaciones  │  Radar 10 min  │  Pysteps horario/10 min    │
 │  Panel pronóstico 24h│  Satélite COM2602│  Acumulación 24h         │
+│  Modal de aviso (memoria Supabase)                                  │
 └─────────────────────────────────────────────────────────────────────┘
 ```
 
@@ -66,14 +70,47 @@ Aplicación end-to-end de predicción meteorológica para ~200 estaciones repart
 | | @supabase/supabase-js | 2.96 |
 | | react-icons | 5.5 |
 | | lunarphase-js | 2.0 |
+| **API** | PostgREST (Supabase) | autogenerada |
+| | Funciones RPC de Postgres | 13 |
 | **Base de datos** | Supabase Postgres | 15 |
 | | PostGIS (raster) | — |
-| | PostgREST + RPC | — |
 | **ML / Python** | XGBoost (GPU / CUDA) | 3.2 |
 | | scikit-learn MultiOutputRegressor | 1.8 |
 | | pandas + pyarrow (Parquet) | 3.0 / 23 |
 | | openmeteo-requests | 1.7 |
 | | joblib (serialización) | 1.5 |
+| **Deploy** | Vercel | — |
+
+---
+
+## API REST
+
+El backend del frontend es una **API REST estándar generada automáticamente por PostgREST**, el servicio que Supabase expone sobre cada base de datos Postgres. No hay servidor intermedio (Express, FastAPI, etc.) — cualquier función Postgres es accesible vía HTTP/JSON.
+
+### Cómo funciona la capa REST
+
+Cada función RPC del esquema `public` se publica automáticamente como un endpoint REST:
+
+```
+POST https://<proyecto>.supabase.co/rest/v1/rpc/obtener_predicciones_geojson
+Headers:
+  apikey: <SUPABASE_ANON_KEY>
+  Content-Type: application/json
+Body:
+  { "p_offset": 24 }
+```
+
+El cliente JavaScript `@supabase/supabase-js` es un **wrapper fino sobre esta API REST**: una llamada como `supabase.rpc('obtener_radar_frame', { p_id_raster: 42 })` se traduce a la petición HTTP anterior. Esto significa que el proyecto utiliza una arquitectura REST real (auditable desde DevTools → Network), pero con la ergonomía de un SDK.
+
+### Por qué RPC envuelve cada endpoint
+
+Las RPC encapsulan en el servidor:
+
+- **Unpacking de raster** (PostGIS `ST_DumpValues` → bytes plano de píxeles)
+- **Filtrado temporal** (último ciclo de predicción, frames más recientes)
+- **Cálculos geoespaciales** (bounds, GeoJSON)
+
+Esto reduce drásticamente el payload enviado al navegador y oculta la estructura interna de las tablas. El frontend solo conoce los 13 endpoints públicos, no el esquema de la base de datos.
 
 ---
 
@@ -81,10 +118,11 @@ Aplicación end-to-end de predicción meteorológica para ~200 estaciones repart
 
 ### Visualizaciones
 
-El dashboard es una **SPA monolítica** (`src/App.jsx`) que expone las siguientes capas y vistas, todas consultando Supabase vía funciones RPC:
+El dashboard es una **SPA monolítica** (`src/App.jsx`) que expone las siguientes capas y vistas, todas consultando la API REST de Supabase vía RPC:
 
 | Vista | Descripción |
 |---|---|
+| **Modal de aviso** | Aviso informativo en la primera visita sobre las limitaciones del plan gratuito de Supabase. Se descarta con un clic y se recuerda con `localStorage` (`disclaimer_dismissed_v1`) |
 | **Mapa de estaciones** | Markers circulares coloreados por temperatura actual para ~200 estaciones de España |
 | **Búsqueda de estación** | Búsqueda en tiempo real con navegación por teclado (flechas ↑↓) |
 | **Panel de estación** | Pronóstico 24h por hora: temperatura, humedad, viento, presión |
@@ -100,7 +138,7 @@ El dashboard es una **SPA monolítica** (`src/App.jsx`) que expone las siguiente
 Los frames de radar, Pysteps y satélite se almacenan en Supabase como datos de píxeles. El frontend los convierte en tiempo real a imágenes PNG para renderizarlas como overlays de Leaflet:
 
 ```
-pixel data (Uint8Array desde Supabase RPC)
+pixel data (Uint8Array desde la API REST de Supabase)
     ↓
 colormap aplicado (10 paradas navy→magenta, 0–300 mm/h)
     ↓
@@ -113,21 +151,45 @@ L.imageOverlay(dataUrl, bounds)  →  Leaflet raster overlay
 
 La carga de frames se realiza en **batches paralelos de 4** para equilibrar velocidad y presión sobre el pool de conexiones de Supabase.
 
-### Conexión a Supabase
+### Layout: bottom-stack unificado
+
+Todos los paneles inferiores (slider temporal + 5 reproductores de capas) viven dentro de un único contenedor `.bottom-stack` (`position: fixed`, `display: flex; flex-direction: column`). Cuando se abre el panel lateral de una estación, una sola regla CSS desplaza todo el conjunto hacia la izquierda con una transición suave de 300 ms, garantizando que el ancho de los paneles permanezca uniforme. Esta refactorización eliminó ~15 clases modificadoras (`.with-radar`, `.with-pysteps`, etc.) y ~60 líneas de reglas `.panel-abierto` específicas por panel.
+
+### Conexión a Supabase (REST + RPC wrapper)
 
 ```js
-// src/App.jsx:9-11
+// src/App.jsx
 const supabase = createClient(
   import.meta.env.VITE_SUPABASE_URL,
   import.meta.env.VITE_SUPABASE_ANON_KEY
 );
+
+// Bajo el capó, esta llamada lanza POST /rest/v1/rpc/obtener_predicciones_geojson
+const { data } = await supabase.rpc('obtener_predicciones_geojson', {
+  p_offset: hora,
+});
 ```
 
 Clave anónima únicamente — solo lectura pública. No hay autenticación ni cuentas de usuario.
 
 ### Decisión de diseño: SPA monolítica sin router
 
-El dashboard es una vista única donde todas las capas coexisten simultáneamente. Se descartó React Router para no añadir complejidad sin beneficio. Sin Redux ni Zustand porque el estado es local a la vista y la comunicación entre componentes es directa. Tres librerías externas (`useState`, `useEffect`, `useRef`) cubren todos los casos de uso.
+El dashboard es una vista única donde todas las capas coexisten simultáneamente. Se descartó React Router para no añadir complejidad sin beneficio. Sin Redux ni Zustand porque el estado es local a la vista y la comunicación entre componentes es directa. Tres hooks (`useState`, `useEffect`, `useRef`) cubren todos los casos de uso.
+
+### Despliegue (Vercel)
+
+El frontend se despliega en Vercel con configuración en el panel de control:
+
+| Setting | Valor |
+|---|---|
+| Root Directory | `frontend` |
+| Framework | Vite |
+| Install Command | `npm install` |
+| Build Command | `npm run build` |
+| Output Directory | `dist` |
+| Variables de entorno | `VITE_SUPABASE_URL`, `VITE_SUPABASE_ANON_KEY` |
+
+No se utiliza `vercel.json` — toda la configuración vive en el dashboard.
 
 ---
 
@@ -146,11 +208,11 @@ El dashboard es una vista única donde todas las capas coexisten simultáneament
 | `acumulacion_*` | Frames de acumulación de lluvia |
 | `com2602_*` | Frames de imagen satelital COM2602 |
 
-### Funciones RPC
+### Endpoints REST (RPC)
 
-El frontend consume 13 funciones RPC de Postgres. Se optó por RPC en lugar de consultas PostgREST directas porque estas funciones encapsulan el unpacking del raster del lado servidor, reduciendo el payload enviado al cliente y ocultando la estructura interna de las tablas.
+El frontend consume 13 endpoints REST, cada uno respaldado por una función RPC de Postgres:
 
-| RPC | Propósito |
+| Endpoint REST (`POST /rest/v1/rpc/...`) | Propósito |
 |---|---|
 | `obtener_limites_geojson` | Polígonos GeoJSON de regiones |
 | `obtener_predicciones_geojson` | Predicciones de todas las estaciones para un offset horario |
@@ -176,12 +238,19 @@ GeoTIFF (GDAL)  →  raster2pgsql  →  WKB  →  INSERT en Supabase
 
 Implementado en `entrenamiento/test_subir_radar.py` y `test_subir_gdal.py`.
 
+---
 
-Pipeline de ML — Recopilación de datos
+## Limitaciones del plan gratuito de Supabase
+
+El proyecto utiliza el **plan gratuito de Supabase**, que tiene memoria y ancho de banda limitados para datos ráster pesados. Cuando hay muchas peticiones simultáneas o el ráster es muy grande, Supabase puede no entregar los datos. Por este motivo se muestra el modal de aviso en la primera visita: las capas de radar, Pysteps, predicción 10-minutal, acumulación horaria y COM2602 pueden no cargarse o tardar más de lo esperado. La predicción puntual por estación, el slider temporal y el buscador funcionan siempre con normalidad porque consumen pocos bytes por petición.
+
+---
+
+## Pipeline de ML — Recopilación de datos
 
 ### Fuente de datos
 
-Open-Meteo Archive API** (gratuita, sin API key). Cubre datos históricos horarios con un delay de ~5 días.
+**Open-Meteo Archive API** (gratuita, sin API key). Cubre datos históricos horarios con un delay de ~5 días.
 
 Variables descargadas por estación:
 - `temperature_2m` (°C)
@@ -368,6 +437,14 @@ python recopilacion_semanal.py   # Valida, actualiza datos y reentrena
 
 ## Decisiones técnicas
 
+### Por qué API REST autogenerada (PostgREST) en lugar de un backend propio
+
+Sin servidor adicional que mantener: PostgREST traduce el esquema Postgres a endpoints REST estándar automáticamente. Cada RPC es un endpoint HTTP auditable desde DevTools. Se evita el coste (tiempo + dinero) de hostear un Express/FastAPI intermedio que solo reexpondría las mismas operaciones. Si en el futuro se necesita lógica fuera de Postgres (rate limiting, auth compleja, integraciones con terceros), se puede añadir como Supabase Edge Function sin romper la arquitectura actual.
+
+### Por qué RPC en lugar de queries PostgREST directas a tablas
+
+Las RPC permiten encapsular en el servidor el unpacking del raster, el filtrado por ciclo más reciente y los cálculos geoespaciales — reduciendo el payload por petición de megabytes a kilobytes. Además ocultan el esquema interno: el frontend conoce 13 endpoints estables, no la estructura de las 8+ tablas subyacentes.
+
 ### Por qué XGBoost y no una red neuronal (LSTM/Transformer)
 
 Los datos son **tabulares estructurados** (temperatura, presión, humedad…), dominio donde XGBoost supera sistemáticamente a las redes en problemas de horizonte corto. Además: latencia de inferencia baja (sin GPU en producción), modelo interpretable (feature importances), menor riesgo de sobreajuste con pocos datos nuevos, y serialización simple a `.pkl`.
@@ -384,10 +461,6 @@ El entrenamiento requiere millones de filas en lectura aleatoria — Parquet col
 
 Leaflet es open source, sin API key, y soporta overlays raster arbitrarios (necesarios para radar y satélite). Mapbox ofrece mejor calidad visual pero requiere clave de pago y no aporta capacidades adicionales para este caso de uso.
 
-### Por qué RPCs de Postgres en lugar de una capa API en Node/Python
-
-Menos infraestructura: sin servidor adicional, sin mantenimiento de endpoints. La lógica de unpacking de raster vive donde están los datos (Postgres), reduciendo el payload que llega al cliente. PostgREST expone las RPCs automáticamente.
-
 ---
 
 ## Skills que demuestra este proyecto
@@ -397,7 +470,9 @@ Menos infraestructura: sin servidor adicional, sin mantenimiento de endpoints. L
 | **Ingeniería de datos** | ETL con Open-Meteo API, almacenamiento Parquet columnar, pipeline de validación continua MAE/RMSE, carga de rasters GeoTIFF con GDAL/raster2pgsql |
 | **ML aplicado** | Regresión multi-output, entrenamiento en GPU (CUDA), sliding window para pronóstico extendido, split temporal (sin data leakage), métricas por variable |
 | **Geoespacial** | PostGIS + raster WKB, GeoJSON para límites administrativos, overlays raster en Leaflet con colormap personalizado, integración GDAL |
-| **Full-stack** | React 19, Supabase Postgres, RPCs, canvas API para renderizado de píxeles, visualización de series temporales |
+| **API REST** | Diseño de endpoints REST con PostgREST + RPC, payload optimization (unpacking server-side), versionado por ciclo |
+| **Full-stack** | React 19, Supabase Postgres, canvas API para renderizado de píxeles, visualización de series temporales, despliegue continuo en Vercel |
+| **UX / CSS** | Layout responsive con un único contenedor `.bottom-stack`, modal de onboarding con persistencia en `localStorage`, transiciones coordinadas al abrir el panel lateral |
 
 ---
 
@@ -423,8 +498,8 @@ prediccion_meteo/
 │       └── part_<ciudad>.parquet
 └── frontend/
     ├── src/
-    │   ├── App.jsx                  # SPA monolítica (~1230 líneas)
-    │   ├── App.css                  # Estilos (~35 KB)
+    │   ├── App.jsx                  # SPA monolítica (~1300 líneas)
+    │   ├── App.css                  # Estilos (~38 KB)
     │   └── main.jsx
     ├── package.json
     └── vite.config.js
